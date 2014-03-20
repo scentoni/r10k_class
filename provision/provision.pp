@@ -21,7 +21,7 @@ ini_setting { 'puppet.conf/main/modulepath':
   path    => $puppet_conf,
   section => 'main',
   setting => 'modulepath',
-  value   => '/etc/puppet/environments/$environment/modules:/usr/share/puppet/modules'
+  value   => '/etc/puppet/environments/$environment/modules:/etc/puppet/modules:/usr/share/puppet/modules'
 }
 
 ini_setting { 'puppet.conf/main/hiera_config':
