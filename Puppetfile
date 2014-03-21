@@ -32,6 +32,6 @@ mod 'puppetlabs/inifile',
   :ref => '1.0.3'
 
 mod 'puppetlabs/concat',
-  :git => 'git://github.com/puppetlabs/puppetlabs-inifile.git',
+  :git => 'git://github.com/puppetlabs/puppetlabs-concat.git',
   :ref => '1.0.2'
 
