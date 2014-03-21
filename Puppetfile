@@ -13,7 +13,7 @@ forge 'forge.puppetlabs.com'
 
 mod 'zack/r10k',
   :git => 'git://github.com/acidprime/r10k.git',
-  :ref => '1.0.2'
+  :ref => 'v1.0.2'
 
 mod 'puppetlabs/git',
   :git => 'git://github.com/puppetlabs/puppetlabs-git.git',
