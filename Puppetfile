@@ -35,3 +35,11 @@ mod 'puppetlabs/concat',
   :git => 'git://github.com/puppetlabs/puppetlabs-concat.git',
   :ref => '1.0.2'
 
+mod 'saz/sudo',
+  :git => 'git://github.com/saz/puppet-sudo.git',
+  :ref => '3.0.3'
+
+mod 'saz/limits',
+  :git => 'git://github.com/saz/puppet-limits.git',
+  :ref => '2.0.1'
+
