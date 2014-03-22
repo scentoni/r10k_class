@@ -1,0 +1,14 @@
+# An hash of puppet group types
+#
+# Although these can be defined anywhere in your Hiera structure,
+# the most manageable approach is to define all your groups here,
+# and realize them in your profiles via tags.
+#
+# See http://docs.puppetlabs.com/references/latest/type.html#group
+# for supported properties.
+---
+#group:
+#  foo:
+#    gid: 1001
+#    tag:
+#      - base

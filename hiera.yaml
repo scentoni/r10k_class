@@ -1,0 +1,17 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "host/%{::clientcert}"
+  - "os/${::operatingsystem}"
+  - "location/${::location}"
+  - "yumrepo/${::operatingsystem}"
+  - "yumrepo/common"
+  - "package/${::osfamily}"
+  - "package/common"
+  - account
+  - group
+  - common
+
+:yaml:
+  :datadir: "/etc/puppet/environments/%{::environment}/hieradata"

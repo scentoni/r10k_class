@@ -1,0 +1,23 @@
+# A hash of account module types
+#
+# Although these can be defined anywhere in your Hiera structure,
+# the most manageable approach is to define all your accounts here,
+# and realize them in your profiles via tags.
+#
+# This module should only be used for general accounts. Do not
+# list accounts here that might be controled directly using a module
+# E.g. apache user should be managed via the apache module, not here.
+#
+# See http://forge.puppetlabs.com/torrancew/account
+# for supported properties.
+---
+account:
+  alice:
+    tag:
+      - base
+      - taos
+      - consultants
+    password: '!'
+    uid: 1001
+    groups: wheel
+    ssh_key: AAAAB3NzaC1yc2EAAAABIwAAAgEA6p1M3AocqeI5y7YlUXrOwv8U3CgkAp3MhC23+jsf0vakCBzLMpYBYUtH2JKRZS0JtyaGNX/+3kmFrP1zNEQgqT4zmkbren3tj7W7DGtzMnqb4XPFA/8aTbMS64c63CZQcoJcQcFLpg6mrpdCb7FG4gfqtM1SHsvqtw9pUuD/bV1BSFHBTpWlFVIeG5Wh92CajsZm2nIrR5Mn5jmGShFRz70aKS0UhVK4PjDbl+QntCKRbstAyII7ftYlmBo7GgXy/n5UmWejsOjJbEXLnSeXnMNLStZUDWtHwIS/IxYbMPOSklHzTEJiI3K6H5tkJrc5vlP3/QGBh36K16Hlc/2pvTPD9NIzU0kt1zI8G6WUo8Ug5L5AhyMoL5BpZMJX9wvDJKpYJkqY3vUlWS6XJiOOaTTgpoQ23sOdMQLZcdSPIZVo0uQxqP2mtP8c/eO5ra0yFMsbBfdAG4OH3k3ujcRS9xcpMZL4fNMWoj3qJHdalOsQazZvOYIkMOYTNShx1NV2CAk/beteiEFc99+EltRAUbA8gvLYyznINOaA0GcJjvz7XvKtEBp4UVGAhYqbOCwJectUroSSji/J3ybfFXsWndMGz1FaerLWihh9j6FhVJJvSAoDb5R34oisCBvrsl9XF1g2sjfjlDe16EW9+RHTMU8ktg7SqJWQFLwVO8RLksU=

@@ -1,0 +1,16 @@
+# An hash of puppet package types
+#
+# Although these can be defined anywhere in your Hiera structure,
+# the most manageable approach is to define all your pacages here,
+# and realize them in your profiles via tags.
+#
+# This module should only be used for general packages. Do not
+# list packages here that might be controled directly using a module
+# E.g. httpd should be managed via the apache module, not here.
+#
+# See http://docs.puppetlabs.com/references/latest/type.html#package
+# for supported properties.
+---
+package:
+  vim-enhanced:
+    tag: base 

@@ -1,0 +1,9 @@
+---
+# NTP module properties.
+# See http://forge.puppetlabs.com/puppetlabs/ntp
+ntp::restrict: 
+  - 127.0.0.1
+
+# selinux_config properties
+# See selinux_config modules for supported properties
+selinux_config::selinux: disabled
