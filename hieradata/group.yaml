@@ -1,4 +1,4 @@
-# An hash of puppet group types
+# A hash of puppet group types
 #
 # Although these can be defined anywhere in your Hiera structure,
 # the most manageable approach is to define all your groups here,
