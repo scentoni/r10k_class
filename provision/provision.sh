@@ -1,7 +1,14 @@
 #!/bin/bash -x
 
-sudo yum install -y https://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
-sudo yum install -y puppet-server
+sudo yum update -y
 
-sudo puppet module install puppetlabs-inifile --modulepath=/etc/puppet/modules:/usr/share/puppet/modules
-sudo puppet module install zack-r10k --modulepath=/etc/puppet/modules:/usr/share/puppet/modules
+sudo yum install -y https://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
+sudo yum install -y puppet puppet-server
+sudo yum install -y ruby ruby-devel rubygems
+
+sudo gem install rubygems-update
+sudo update_rubygems
+
+sudo gem install r10k
+sudo gem install system_timer #Make warning messages go away
+
