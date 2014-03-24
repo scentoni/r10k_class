@@ -23,7 +23,7 @@ class profiles::base {
 
   $packages = hiera_hash('package', undef)
   if $packages {
-    create_resource('@package', $packages)
+    create_resources('@package', $packages)
   }
   Package <| tag == 'base' |>
 }
