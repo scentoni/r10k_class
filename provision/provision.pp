@@ -32,9 +32,36 @@ ini_setting { 'puppet.conf/main/hiera_config':
   value   => '/etc/puppet/environments/master/hiera.yaml'
 }
 
+ini_setting { 'puppet.conf/main/hiera_config':
+  ensure  => 'present',
+  path    => $puppet_conf,
+  section => 'main',
+  setting => 'environment',
+  value   => 'master'
+}
+
+ini_setting { 'puppet.conf/main/hiera_config':
+  ensure  => 'present',
+  path    => $puppet_conf,
+  section => 'agent',
+  setting => 'server',
+  value   => 'puppet'
+}
+
+service { 'puppet':
+  ensure => 'stopped',
+  enable => false,'
+}
+
+service { 'puppetmaster':
+  ensure => 'running',
+  enable => true,
+}
+
+
 file { '/etc/hiera.yaml':
   ensure => 'link',
-  target => 'puppet/environments/production/hiera.yaml'
+  target => 'puppet/environments/master/hiera.yaml'
 }
 
 $r10k_config = "# The location to use for storing cached Git repos
