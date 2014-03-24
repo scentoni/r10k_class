@@ -29,7 +29,7 @@ ini_setting { 'puppet.conf/main/hiera_config':
   path    => $puppet_conf,
   section => 'main',
   setting => 'hiera_config',
-  value   => '/etc/puppet/environments/production/hiera.yaml'
+  value   => '/etc/puppet/environments/master/hiera.yaml'
 }
 
 file { '/etc/hiera.yaml':
@@ -37,6 +37,22 @@ file { '/etc/hiera.yaml':
   target => 'puppet/environments/production/hiera.yaml'
 }
 
-class { 'r10k':
-  remote => 'git@github.com:someuser/puppet.git',
+$r10k_config = "# The location to use for storing cached Git repos
+:cachedir: '/var/cache/r10k'
+
+# A list of git repositories to create
+:sources:
+  # This will clone the git repository and instantiate an environment per
+  # branch in /etc/puppet/environments
+  :puppet:
+    remote: 'git://github.com/taosmountain/r10k_class.git'
+    basedir: '/etc/puppet/environments'
+"
+
+file { '/etc/r10k.yaml':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => $r10k_config,
 }
