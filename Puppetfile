@@ -15,4 +15,4 @@ mod 'puppetlabs/concat',
 
 mod 'torrancew/account',
   :git => 'git://github.com/torrancew/puppet-account',
-  :ref => '0.0.5'
+  :ref => 'v0.0.5'
