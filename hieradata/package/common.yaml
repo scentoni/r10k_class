@@ -14,3 +14,7 @@
 package:
   vim-enhanced:
     tag: base 
+  mlocate:
+    tag: base
+  dos2unix:
+    tag: base

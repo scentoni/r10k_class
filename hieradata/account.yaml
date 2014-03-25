@@ -21,6 +21,7 @@ account:
     uid: 1001
     groups: wheel
   bob:
+    ensure: absent
     tag:
       - base
       - taos
@@ -28,3 +29,15 @@ account:
     password: '!'
     uid: 1002
     groups: wheel
+  carol:
+    tag:
+      - base
+      - employees
+    password: '!'
+    uid: 1003
+  dan:
+    tag:
+      -base
+      - employees
+    password: '!'
+    uid: 1004
