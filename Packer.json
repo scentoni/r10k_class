@@ -10,6 +10,7 @@
       ],
       "boot_wait": "10s",
       "disk_size": 8192,
+      "format": "ova",
       "guest_os_type": "RedHat_64",
       "http_directory": "provision",
       "hard_drive_interface": "sata",
