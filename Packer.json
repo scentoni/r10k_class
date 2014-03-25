@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
   "builders": [
-{
+    {
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-65-ks.cfg<enter><wait>"
       ],
@@ -34,15 +38,18 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-centos-6.5-x86_64"
+      "vm_name": "packer-centos-6.5-x86_64-r10k"
     },
     {
       "type": "amazon-ebs",
+      "ami_name": "packer r10k class {{timestamp}}",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
       "region": "us-west-2",
       "source_ami": "ami-b6bdde86",
       "instance_type": "t1.micro",
       "ssh_username": "root",
-      "ami_name": "packer {{timestamp}}"
+      "ssh_timeout": "10000s"
     }
   ],
   "provisioners": [
@@ -56,6 +63,11 @@
       "module_paths": [
         "provision/modules"
       ]
+    },
+    {
+      "type": "shell",
+      "inline": [ "rm /root/.ssh/authorized_keys" ],
+      "only": ["amazon-ebs"]
     }
   ],
   "post-processors": [
