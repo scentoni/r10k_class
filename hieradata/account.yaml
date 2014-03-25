@@ -37,7 +37,7 @@ account:
     uid: 1003
   dan:
     tag:
-      -base
+      - base
       - employees
     password: '!'
     uid: 1004
