@@ -43,7 +43,7 @@
     },
     {
       "type": "amazon-ebs",
-      "ami_name": "packer r10k class {{timestamp}}",
+      "ami_name": "packer r10k_class {{timestamp}}",
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "us-west-2",
@@ -74,7 +74,8 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "keep_input_artifact": true
+      "keep_input_artifact": true,
+      "output": "packer-vagrant/packer_{{.BuildName}}_{{.Provider}}.box"
     }
   ]
 }
