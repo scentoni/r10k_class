@@ -29,7 +29,7 @@ ini_setting { 'puppet.conf/main/hiera_config':
   path    => $puppet_conf,
   section => 'main',
   setting => 'hiera_config',
-  value   => '/etc/puppet/environments/master/hiera.yaml'
+  value   => '/etc/puppet/environments/production/hiera.yaml'
 }
 
 ini_setting { 'puppet.conf/main/environment':
@@ -37,7 +37,7 @@ ini_setting { 'puppet.conf/main/environment':
   path    => $puppet_conf,
   section => 'main',
   setting => 'environment',
-  value   => 'master'
+  value   => 'production'
 }
 
 ini_setting { 'puppet.conf/main/server':
@@ -60,7 +60,7 @@ service { 'puppetmaster':
 
 file { '/etc/hiera.yaml':
   ensure => 'link',
-  target => 'puppet/environments/master/hiera.yaml'
+  target => 'puppet/environments/production/hiera.yaml'
 }
 
 $r10k_config = "# The location to use for storing cached Git repos
