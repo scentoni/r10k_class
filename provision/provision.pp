@@ -32,7 +32,7 @@ ini_setting { 'puppet.conf/main/hiera_config':
   value   => '/etc/puppet/environments/master/hiera.yaml'
 }
 
-ini_setting { 'puppet.conf/main/hiera_config':
+ini_setting { 'puppet.conf/main/environment':
   ensure  => 'present',
   path    => $puppet_conf,
   section => 'main',
@@ -40,7 +40,7 @@ ini_setting { 'puppet.conf/main/hiera_config':
   value   => 'master'
 }
 
-ini_setting { 'puppet.conf/main/hiera_config':
+ini_setting { 'puppet.conf/main/server':
   ensure  => 'present',
   path    => $puppet_conf,
   section => 'agent',
@@ -50,14 +50,13 @@ ini_setting { 'puppet.conf/main/hiera_config':
 
 service { 'puppet':
   ensure => 'stopped',
-  enable => false,'
+  enable => false,
 }
 
 service { 'puppetmaster':
   ensure => 'running',
   enable => true,
 }
-
 
 file { '/etc/hiera.yaml':
   ensure => 'link',
@@ -82,4 +81,11 @@ file { '/etc/r10k.yaml':
   group   => 'root',
   mode    => '0644',
   content => $r10k_config,
+}
+
+host { 'localhost.localdomain':
+  ensure       => 'present',
+  host_aliases => ['localhost', 'puppet'],
+  ip           => '127.0.0.1',
+  target       => '/etc/hosts',
 }
