@@ -26,5 +26,5 @@ account:
       - taos
       - consultants
     password: '!'
-    uid: 1001
+    uid: 1002
     groups: wheel
