@@ -1,4 +1,5 @@
 /.vagrant/
+/instances/
 /modules/
 /packer_cache/
 /packer-centos-6.5-x86_64-virtualbox/
